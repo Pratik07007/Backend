@@ -28,7 +28,3 @@ app.post("/login", (req, res) => {
 
 app.listen(3000);
 
-const payload = {
-  email: "s.dhimal006@gmail.com",
-  password: "Access@123",
-};
