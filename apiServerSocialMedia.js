@@ -35,8 +35,8 @@ const payloadValidiation = (req, res, next) => {
     email: zod.string().email(),
     password: zod
       .string()
-      .min(8)
-      .max(32)
+      .min(8, "Password must contain at atleast 8 characters")
+      .max(32, "Very long password")
       .regex(/[0-9]/, "Password must contain at least one number")
       .regex(/[A-Z]/, "Password must contain at least one uppercase letter")
       .regex(
@@ -56,7 +56,7 @@ const payloadValidiation = (req, res, next) => {
 };
 
 app.post("/login", payloadValidiation, (req, res) => {
-  const { email, password } = req.body;
+  const { email, password } = req.body; //use this to add credentials to the database
   //now we can add this email and password to our database
   res.json({
     status: true,
