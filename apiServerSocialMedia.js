@@ -55,6 +55,7 @@ const payloadValidiation = (req, res, next) => {
   }
 };
 
+
 app.post("/login", payloadValidiation, (req, res) => {
   const { email, password } = req.body; //use this to add credentials to the database
   //now we can add this email and password to our database
